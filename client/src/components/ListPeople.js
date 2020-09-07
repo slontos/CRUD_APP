@@ -8,7 +8,7 @@ const ListPeople = () => {
 
   const deletePerson = async (id) => {
       try {
-        const deletePerson = await fetch(`http://localhost:5000/person/${id}`, {
+        const deletePerson = await fetch(`/person/${id}`, {
              method: "DELETE"
          });
         setPerson(person.filter(person => person.person_id !== id));
@@ -19,7 +19,7 @@ const ListPeople = () => {
 
   const getPeople = async () => {
     try {
-      const response = await fetch("http://localhost:5000/person");
+      const response = await fetch("/person");
       const jsonData = await response.json();
 
       setPerson(jsonData);
@@ -36,6 +36,7 @@ const ListPeople = () => {
 
   return (
     <Fragment>
+      <h1 className="text-center mt-5">People List</h1>
       <table className="table mt-5 text-center">
         <thead className="thead-dark">
           <tr>

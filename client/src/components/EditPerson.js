@@ -8,7 +8,7 @@ const EditPerson = ({person}) => {
         e.preventDefault();
         try {
             const body = {description};
-            const response = await fetch(`http://localhost:5000/person/${person.person_id}`, {
+            const response = await fetch(`/person/${person.person_id}`, {
                 method: "PUT",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(body)
