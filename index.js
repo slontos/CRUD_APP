@@ -3,10 +3,17 @@ const app = express();
 const cors = require("cors");
 const pool = require("./db");
 const { json } = require("express");
+const path = require("path");
+const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-//ROUTES//
+//app.use(express.static(path.join(__dirname, "client/build")));
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "client/build")));
+  }
+  
 
 //CREATE person 
 
@@ -95,6 +102,9 @@ app.delete("/person/:id", async (req,res)=> {
         await res.status(500).json({error: err});
     }
 });
-app.listen(5000, ()=> {
-    console.log("server started on port 5000");
-});
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client/build/index.html"));
+  });
+app.listen(PORT, () => {
+    console.log(`Server is starting on port ${PORT}`);
+  });
