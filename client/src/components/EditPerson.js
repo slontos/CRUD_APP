@@ -17,6 +17,7 @@ const EditPerson = ({person}) => {
             window.location ="/";
         } catch (err) {
             console.error(err.message);
+            alert('Server error!');
         }
     };
 

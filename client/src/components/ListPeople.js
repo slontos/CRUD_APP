@@ -14,6 +14,7 @@ const ListPeople = () => {
         setPerson(person.filter(person => person.person_id !== id));
       } catch (err) {
           console.error(err.message);
+          alert('Server error!');
       }
   }
 
@@ -25,6 +26,7 @@ const ListPeople = () => {
       setPerson(jsonData);
     } catch (err) {
       console.error(err.message);
+      alert('Server error!');
     }
   };
 
