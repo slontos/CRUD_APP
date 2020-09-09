@@ -39,8 +39,8 @@ const EditPerson = ({person}) => {
     
           
           <div class="modal-body">
-            <input type="text" className="form-control" value={description} onChange={e => setDescription(e.target.value)}/>
-            <input type="text" className="form-control" value={email} onChange={e => setEmail(e.target.value)}/>
+            <input placeholder="{description}" type="text" className="form-control" value={description} onChange={e => setDescription(e.target.value)}/>
+            <input placeholder="{email}" type="text" className="form-control" value={email} onChange={e => setEmail(e.target.value)}/>
           </div>
     
           
