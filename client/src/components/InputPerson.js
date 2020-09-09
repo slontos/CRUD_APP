@@ -13,14 +13,14 @@ const InputPerson = () => {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(body)
             });
+            setDescription("");
+            alert(`Person Added`); 
         } catch (err) {
             console.error(err.message);
             alert('Server error!');
         }
     }
-
     return (<Fragment>
-        
         <form className="d-flex mt-5" onSubmit={onSubmitForm}>
             <input 
                 type="text" 
