@@ -33,14 +33,14 @@ const EditPerson = ({person}) => {
     
           
           <div class="modal-header">
-            <h4 class="modal-title">Edit Name</h4>
+            <h4 class="modal-title">Edit Person Details</h4>
             <button type="button" class="close" data-dismiss="modal" onClick={() =>{ setDescription(person.description);setEmail(person.email)}}>&times;</button>
           </div>
     
           
           <div class="modal-body">
             <input placeholder="{description}" type="text" className="form-control" value={description} onChange={e => setDescription(e.target.value)}/>
-            <input placeholder="{email}" type="text" className="form-control" value={email} onChange={e => setEmail(e.target.value)}/>
+            <input placeholder="{email}" type="email" className="form-control" value={email} onChange={e => setEmail(e.target.value)}/>
           </div>
     
           

@@ -32,7 +32,7 @@ const InputPerson = () => {
                 placeholder="Enter Full Name"
             />
             <input 
-                type="text" 
+                type="email" 
                 className="form-control" 
                 value={email} 
                 onChange={e => setEmail(e.target.value)}
