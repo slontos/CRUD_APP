@@ -3,17 +3,19 @@ import React, {Fragment, useState} from "react";
 const InputPerson = () => {
 
     const [description, setDescription] = useState("");
+    const [email, setEmail] = useState("");
 
     const onSubmitForm = async(e) => {
         e.preventDefault();
         try {
-            const body = {description};
+            const body = {description, email};
             const response = await fetch("/person", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(body)
             });
             setDescription("");
+            setEmail("");
             alert(`Person Added`); 
         } catch (err) {
             console.error(err.message);
@@ -28,6 +30,13 @@ const InputPerson = () => {
                 value={description} 
                 onChange={e => setDescription(e.target.value)}
                 placeholder="Enter Full Name"
+            />
+            <input 
+                type="text" 
+                className="form-control" 
+                value={email} 
+                onChange={e => setEmail(e.target.value)}
+                placeholder="Enter email"
             />
             <button className="btn btn-success">Add</button>
         </form>

@@ -43,6 +43,7 @@ const ListPeople = () => {
         <thead className="thead-dark">
           <tr>
             <th>Full Name</th>
+            <th>Email</th>
             <th>Edit</th>
             <th>Delete</th>
           </tr>
@@ -51,6 +52,7 @@ const ListPeople = () => {
           {person.map(person => (
             <tr key={person.person_id}>
               <td>{person.description}</td>
+              <td>{person.email}</td>
               <td><EditPerson person={person}/></td>
               <td>
                     <button 

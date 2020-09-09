@@ -3,18 +3,19 @@ import React, {Fragment, useState} from "react";
 const EditPerson = ({person}) => {
 
     const [description, setDescription] = useState(person.description);
+    const [email, setEmail] = useState(person.email);
 
     const updateDescription = async(e) => {
         e.preventDefault();
         try {
-            const body = {description};
+            const body = {description, email};
             const response = await fetch(`/person/${person.person_id}`, {
                 method: "PUT",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(body)
             });
 
-            window.location ="/";
+            window.location ="/list";
         } catch (err) {
             console.error(err.message);
             alert('Server error!');
@@ -26,19 +27,20 @@ const EditPerson = ({person}) => {
       Edit
     </button>
     
-    <div class="modal" id={`id${person.person_id}`} onClick={() => setDescription(person.description)}>
+    <div class="modal" id={`id${person.person_id}`} onClick={() =>{ setDescription(person.description);setEmail(person.email)}}>
       <div class="modal-dialog">
         <div class="modal-content">
     
           
           <div class="modal-header">
             <h4 class="modal-title">Edit Name</h4>
-            <button type="button" class="close" data-dismiss="modal" onClick={() => setDescription(person.description)}>&times;</button>
+            <button type="button" class="close" data-dismiss="modal" onClick={() =>{ setDescription(person.description);setEmail(person.email)}}>&times;</button>
           </div>
     
           
           <div class="modal-body">
             <input type="text" className="form-control" value={description} onChange={e => setDescription(e.target.value)}/>
+            <input type="text" className="form-control" value={email} onChange={e => setEmail(e.target.value)}/>
           </div>
     
           

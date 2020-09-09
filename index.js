@@ -20,9 +20,9 @@ if (process.env.NODE_ENV === "production") {
 app.post("/person", async(req, res)=> {
     try {
         const client = await pool.connect();
-        const {description} = req.body;
-        const newPerson = await client.query("INSERT INTO person (description) VALUES($1) RETURNING *", 
-        [description]
+        const {description, email} = req.body;
+        const newPerson = await client.query("INSERT INTO person (description, email) VALUES($1, $2) RETURNING *", 
+        [description, email]
         )
         res.json(newPerson.rows[0]);
         res.status(200).send('Person has been inserted in the database');
@@ -71,9 +71,9 @@ app.put("/person/:id", async (req, res)=> {
     try {
         const client = await pool.connect();
         const {id} = req.params;
-        const {description} = req.body;
-        const updatePerson = await client.query("UPDATE person SET description = $1 WHERE person_id = $2",
-        [description, id]
+        const {description, email} = req.body;
+        const updatePerson = await client.query("UPDATE person SET description = $1, email = $2 WHERE person_id = $3",
+        [description, email, id]
         );
 
         res.json("person updated");
