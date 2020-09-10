@@ -50,7 +50,6 @@ const Nav = props => {
         <div className={classes.root}>
             <AppBar position="static">
             <Toolbar>
-            <div>
             {isMobile ? (
                 <Fragment>
                 <IconButton 
@@ -89,7 +88,6 @@ const Nav = props => {
                         <Button variant="contained" onClick={() => handleClick('/list')}>People List</Button>
                     </div>
                     )}
-            </div>
          </Toolbar>
         </AppBar>
         </div>
