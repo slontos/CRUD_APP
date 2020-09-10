@@ -24,7 +24,8 @@ const useStyles = makeStyles((theme) => ({
     },
     headerOptions: {
       display: "flex",
-      flex: 1
+      flex: 1,
+      justifyContent: "space-evenly"
     }
   }));
   
