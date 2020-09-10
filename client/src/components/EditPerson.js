@@ -40,7 +40,7 @@ const EditPerson = ({person}) => {
           
           <div class="modal-body">
             <input placeholder="{description}" type="text" className="form-control" value={description} onChange={e => setDescription(e.target.value)}/>
-            <input placeholder="{email}" type="email" className="form-control" value={email} onChange={e => setEmail(e.target.value)}/>
+            <input placeholder="{email}" required type="email" className="form-control" value={email} onChange={e => setEmail(e.target.value)}/>
           </div>
     
           
