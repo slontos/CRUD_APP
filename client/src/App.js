@@ -9,8 +9,8 @@ import Nav from './Nav';
 function App() {
   return (
     <Router>
+      <Nav />
       <div className="container">
-        <Nav />
         <Switch>
           <Route path="/" exact component={Home}/>
           <Route path="/list" component={ListPeople} />
