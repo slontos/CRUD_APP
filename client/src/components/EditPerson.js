@@ -1,4 +1,6 @@
 import React, {Fragment, useState} from "react";
+import Button from "@material-ui/core/Button";
+import EditIcon from '@material-ui/icons/Edit';
 
 const EditPerson = ({person}) => {
 
@@ -23,9 +25,9 @@ const EditPerson = ({person}) => {
     };
 
     return <Fragment>
-    <button type="button" class="btn btn-warning" data-toggle="modal" data-target={`#id${person.person_id}`}>
+    <EditIcon fontSize="large" type="button" data-toggle="modal" data-target={`#id${person.person_id}`}>
       Edit
-    </button>
+    </EditIcon>
     
     <div class="modal" id={`id${person.person_id}`} onClick={() =>{ setDescription(person.description);setEmail(person.email)}}>
       <div class="modal-dialog">
@@ -34,7 +36,7 @@ const EditPerson = ({person}) => {
           
           <div class="modal-header">
             <h4 class="modal-title">Edit Person Details</h4>
-            <button type="button" class="close" data-dismiss="modal" onClick={() =>{ setDescription(person.description);setEmail(person.email)}}>&times;</button>
+            <Button type="button" class="close" data-dismiss="modal" onClick={() =>{ setDescription(person.description);setEmail(person.email)}}>&times;</Button>
           </div>
     
           
@@ -45,8 +47,8 @@ const EditPerson = ({person}) => {
     
           
           <div class="modal-footer">
-            <button type="button" class="btn btn-warning" data-dismiss="modal" onClick = {e => updateDescription(e)}>Edit</button>
-            <button type="button" class="btn btn-danger" data-dismiss="modal" onClick={() => setDescription(person.description)}>Close</button>
+            <Button type="button" class="btn btn-warning" data-dismiss="modal" onClick = {e => updateDescription(e)}>Edit</Button>
+            <Button type="button" class="btn btn-danger" data-dismiss="modal" onClick={() => setDescription(person.description)}>Close</Button>
           </div>
     
         </div>

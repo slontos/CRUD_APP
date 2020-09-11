@@ -1,8 +1,17 @@
 import React, { Fragment, useEffect, useState } from "react";
 import EditPerson from "./EditPerson";
+import Button from "@material-ui/core/Button";
+import { makeStyles } from '@material-ui/core/styles';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 
+const useStyles = makeStyles((theme) => ({
+  button: {
+    margin: theme.spacing(1),
+  },
+}));
 const ListPeople = () => {
+  const classes = useStyles();
   const [person, setPerson] = useState([]);
 
 
@@ -55,10 +64,13 @@ const ListPeople = () => {
               <td>{person.email}</td>
               <td><EditPerson person={person}/></td>
               <td>
-                    <button 
-                        className="btn btn-danger" 
-                        onClick={()=> deletePerson(person.person_id)}>Delete
-                    </button>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  className={classes.button}
+                  startIcon={<DeleteIcon />}
+                  onClick={()=> deletePerson(person.person_id)}>Delete
+                </Button>
                </td>
             </tr>
           ))}
