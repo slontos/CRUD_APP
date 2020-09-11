@@ -51,18 +51,18 @@ const ListPeople = () => {
       <table className="table mt-5 text-center">
         <thead className="thead-dark">
           <tr>
+            <th></th>
             <th>Full Name</th>
             <th>Email</th>
-            <th>Edit</th>
             <th>Delete</th>
           </tr>
         </thead>
         <tbody>
           {person.map(person => (
             <tr key={person.person_id}>
+              <td><EditPerson person={person}/></td>
               <td>{person.description}</td>
               <td>{person.email}</td>
-              <td><EditPerson person={person}/></td>
               <td>
                 <Button
                   variant="contained"
